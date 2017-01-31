@@ -1,11 +1,16 @@
-<p>
-    Welcome to your new demonstration app! We hope you enjoy using the OSF. The following demonstration pages are
-    available to showcase sample functionality:
-</p>
+<div class="row">
+    <div class="col-xs-12 p-v-md">
+        <h1>
+            Welcome to your new demonstration app! We hope you enjoy using the OSF. The following demonstration pages are
+            available to showcase sample functionality:
+        </h1>
 
-<ul>
-    {{#unless session.isAuthenticated}}
-        <li>{{#link-to "login"}}Log in{{/link-to}}</li>
-    {{/unless}}
-    <li>{{#link-to "me"}}User information{{/link-to}} (requires user to be logged in)</li>
-</ul>
+        <ul>
+            {{#unless session.isAuthenticated}}
+                <h2><li>{{#link-to "login"}}Log in{{/link-to}}</li></h2>
+            {{/unless}}
+            <h2><li>{{#link-to "me"}}User information{{/link-to}} (requires user to be logged in)</li></h2>
+        </ul>
+    </div>
+</div>
+
