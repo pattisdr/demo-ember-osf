@@ -1,0 +1,20 @@
+<h1> My Projects </h1>
+
+<h2> Create a project!</h2>
+{{input type="text" value=title placeholder="Enter title"}}
+{{input type="text" value=description placeholder="Enter description"}}
+<button class="btn btn-success" onclick={{action "createProject" title description}}> Add project!</button>
+
+{{#each newProjects as |project|}}
+    <h2> {{project.title}} </h2>
+    {{#if project.description}}
+        <h3>{{project.description}}</h3>
+    {{/if}}
+{{/each}}
+
+{{#each model as |project|}}
+    <h2> {{project.title}} </h2>
+    {{#if project.description}}
+        <h3>{{project.description}}</h3>
+    {{/if}}
+{{/each}}
