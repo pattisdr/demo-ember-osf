@@ -12,10 +12,16 @@
     tags=model.tags
 }}
 
-{{file-browser rootItem=model
-    openFile=(action 'fileDetail')
-}}
+<div class="row">
+  <div class="col-xs-4">
+      {{file-browser rootItem=model
+        openFile=(action 'fileDetail')
+      }}
+  </div>
+  <div class="col-xs-8">
+      {{#file-renderer download=downloadUrl
+        width="800" height="1000"}}
+    {{/file-renderer}}
+  </div>
+</div>
 
-{{#file-renderer download=downloadUrl
-    width="800" height="1000"}}
-{{/file-renderer}}
