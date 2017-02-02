@@ -13,4 +13,9 @@
 }}
 
 {{file-browser rootItem=model
+    openFile=(action 'fileDetail')
 }}
+
+{{#file-renderer download=downloadUrl
+    width="800" height="1000"}}
+{{/file-renderer}}
