@@ -13,8 +13,11 @@
 {{/each}}
 
 {{#each model as |project|}}
-    <h2> {{project.title}} </h2>
+    {{#link-to 'detail' project.id}}
+        <h2> {{project.title}} </h2>
+    {{/link-to}}
     {{#if project.description}}
         <h3>{{project.description}}</h3>
     {{/if}}
 {{/each}}
+
