@@ -5,3 +5,9 @@
 {{input type="text" placeholder="Edit title!" value=title}}
 {{input type="text" placeholder="Edit description!" value=description}}
 <button class="btn btn-small" onclick={{action "editProject" title description}}> Edit project! </button>
+
+{{tags-widget
+    addATag=(action 'addATag' model)
+    removeATag=(action 'removeATag' model)
+    tags=model.tags
+}}
