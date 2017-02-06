@@ -60,7 +60,9 @@
     "loader.js": "^4.0.1",
     "yuidocjs": "^0.10.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ember-power-select": "^1.4.3"
+  },
   "jscsConfig": {
     "preset": "airbnb",
     "excludeFiles": [

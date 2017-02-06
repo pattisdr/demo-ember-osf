@@ -56,11 +56,12 @@ module.exports = function (defaults) {
         destDir: 'img'
     });
 
-    // app.import('bower_components/dropzone/dist/dropzone.js');
+    app.import(path.join(app.bowerDirectory, 'dropzone/dist/dropzone.js'));
     app.import({
         development: path.join(app.bowerDirectory, 'dropzone/dist/dropzone.css'),
         production: path.join(app.bowerDirectory, 'dropzone/dist/min/dropzone.min.css')
     });
+
 
     app.import(path.join(app.bowerDirectory, 'jquery.tagsinput/src/jquery.tagsinput.js'));
 
