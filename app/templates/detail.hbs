@@ -6,11 +6,28 @@
 {{input type="text" placeholder="Edit description!" value=description}}
 <button class="btn btn-small" onclick={{action "editProject" title description}}> Edit project! </button>
 
-{{tags-widget
-    addATag=(action 'addATag' model)
-    removeATag=(action 'removeATag' model)
-    tags=model.tags
-}}
+<div class="row">
+    <div class="col-xs-12">
+        {{tags-widget
+            addATag=(action 'addATag' model)
+            removeATag=(action 'removeATag' model)
+            tags=model.tags
+        }}
+    </div>
+</div>
+
+<div class="row m-v-sm p-v-sm">
+    <div class="col-xs-12">
+       {{dropzone-widget
+            options=dropzoneOptions
+            sending=(action 'sending')
+            buildUrl=(action 'buildUrl')
+            complete=(action 'complete')
+            preUpload=(action 'preUpload')
+            maxfilesexceeded=(action 'maxfilesexceeded')
+       }}
+    </div>
+</div>
 
 <div class="row">
   <div class="col-xs-4">
@@ -24,4 +41,3 @@
     {{/file-renderer}}
   </div>
 </div>
-
