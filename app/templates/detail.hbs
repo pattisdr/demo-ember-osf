@@ -27,7 +27,7 @@
         </label>
             <button class="btn btn =-success" onclick={{action "addContrib" userId}}> Add contributor </button>
             <h4> Project contributors</h4>
-            {{#each contributors as |contributor|}}
+            {{#each model.contributors as |contributor|}}
                 <ul>
                     <li> {{contributor.users.fullName}}</li>
                 </ul>

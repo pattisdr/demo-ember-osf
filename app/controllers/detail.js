@@ -15,14 +15,6 @@ export default Ember.Controller.extend(NodeActionsMixin, TaggableMixin, {
     callback: null,
     url: null,
     contributors: Ember.A(),
-    getContributors: Ember.observer('model', function() {
-        let model = this.get('model');
-        let contributors = Ember.A();
-        loadAll(model, 'contributors', contributors).then(() => {
-            this.set('contributors', contributors);
-        });
-    }),
-
     actions: {
         editProject(title, description) {
             return this.send('updateNode', title, description);
