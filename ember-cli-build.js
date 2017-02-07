@@ -56,7 +56,7 @@ module.exports = function (defaults) {
         destDir: 'img'
     });
 
-    // app.import('bower_components/dropzone/dist/dropzone.js');
+    app.import('bower_components/dropzone/dist/dropzone.js');
     app.import({
         development: path.join(app.bowerDirectory, 'dropzone/dist/dropzone.css'),
         production: path.join(app.bowerDirectory, 'dropzone/dist/min/dropzone.min.css')
