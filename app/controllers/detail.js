@@ -1,8 +1,7 @@
 import Ember from 'ember';
 import NodeActionsMixin from 'ember-osf/mixins/node-actions';
 import TaggableMixin from 'ember-osf/mixins/taggable-mixin';
-
-
+import loadAll from 'ember-osf/utils/load-relationship';
 
 export default Ember.Controller.extend(NodeActionsMixin, TaggableMixin, {
     downloadUrl: null,
@@ -15,6 +14,14 @@ export default Ember.Controller.extend(NodeActionsMixin, TaggableMixin, {
     file: null,
     callback: null,
     url: null,
+    contributors: Ember.A(),
+    getContributors: Ember.observer('model', function() {
+        let model = this.get('model');
+        let contributors = Ember.A();
+        loadAll(model, 'contributors', contributors).then(() => {
+            this.set('contributors', contributors);
+        });
+    }),
 
     actions: {
         editProject(title, description) {
@@ -22,6 +29,9 @@ export default Ember.Controller.extend(NodeActionsMixin, TaggableMixin, {
         },
         fileDetail(file) {
             this.set('downloadUrl', this.get('fileManager').getDownloadUrl(file));
+        },
+        addContrib(userId) {
+            return this.send('addContributor', userId, 'write', true);
         },
         buildUrl() {
             return this.get('url');

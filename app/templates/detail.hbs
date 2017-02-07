@@ -1,16 +1,16 @@
 <h1> {{model.title}} </h1>
 <h2> {{model.description}} </h2>
-
+<hr>
 <h3> Edit My Project </h3>
 <label>
     Edit title:
-    {{input type="text" placeholder="Edit title!" value=title aria-label="add title"}}
+    {{input type="text" placeholder="Edit title!" value=title}}
 </label>
 <label>
     Edit description:
-    {{input type="text" placeholder="Edit description!" value=description aria-label="edit description"}}
+    {{input type="text" placeholder="Edit description!" value=description}}
 </label>
-<button class="btn btn-small" onclick={{action "editProject" title description}}> Edit project! </button>
+<button class="btn btn-success" onclick={{action "editProject" title description}}> Edit project! </button>
 
 <div class="row">
     <div class="col-xs-12">
@@ -19,8 +19,24 @@
             removeATag=(action 'removeATag' model)
             tags=model.tags
         }}
+        <hr>
+        <h3> Add contributors </h3>
+        <label>
+            Enter user id here:
+            {{input type="text" placeholder="User id" value=userId}}
+        </label>
+            <button class="btn btn =-success" onclick={{action "addContrib" userId}}> Add contributor </button>
+            <h4> Project contributors</h4>
+            {{#each contributors as |contributor|}}
+                <ul>
+                    <li> {{contributor.users.fullName}}</li>
+                </ul>
+            {{/each}}
+
+
     </div>
 </div>
+<hr>
 
 <div class="row m-v-sm p-v-sm">
     <div class="col-xs-12">
