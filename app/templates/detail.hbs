@@ -2,8 +2,14 @@
 <h2> {{model.description}} </h2>
 
 <h3> Edit My Project </h3>
-{{input type="text" placeholder="Edit title!" value=title}}
-{{input type="text" placeholder="Edit description!" value=description}}
+<label>
+    Edit title:
+    {{input type="text" placeholder="Edit title!" value=title aria-label="add title"}}
+</label>
+<label>
+    Edit description:
+    {{input type="text" placeholder="Edit description!" value=description aria-label="edit description"}}
+</label>
 <button class="btn btn-small" onclick={{action "editProject" title description}}> Edit project! </button>
 
 <div class="row">

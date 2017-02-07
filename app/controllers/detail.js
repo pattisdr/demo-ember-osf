@@ -49,7 +49,9 @@ export default Ember.Controller.extend(NodeActionsMixin, TaggableMixin, {
         complete(__, dropzone, file) {
             // Called when the upload was either successful or erroneous.
             // Complete is called when swapping out files for some reason...
-            if (file.xhr === undefined) return;
+            if (file.xhr === undefined) {
+                return;
+            }
         },
         maxfilesexceeded(_, dropzone, file) {
             dropzone.removeAllFiles();
