@@ -6,12 +6,12 @@
         </h1>
 
         <ul>
-            {{#unless session.isAuthenticated}}
-                <h2><li>{{#link-to "login"}}Log in{{/link-to}}</li></h2>
-            {{/unless}}
-            <h2><li>{{#link-to "me"}}User information{{/link-to}} (requires user to be logged in)</li></h2>
-            <h2><li>{{#link-to "projects"}} My Projects!{{/link-to}} (requires user to be logged in)</li></h2>
+            {{#if session.isAuthenticated}}
+                <h2><li>{{#link-to "me"}}User information{{/link-to}} (requires user to be logged in)</li></h2>
+                <h2><li>{{#link-to "projects"}} My Projects!{{/link-to}} (requires user to be logged in)</li></h2>
+            {{else}}
+                <li>{{#link-to "login"}}Log in{{/link-to}}</li>
+            {{/if}}
         </ul>
     </div>
 </div>
-
