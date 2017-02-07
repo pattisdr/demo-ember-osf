@@ -18,26 +18,26 @@
 
 <div class="row m-v-sm p-v-sm">
     <div class="col-xs-12">
-       {{dropzone-widget
+        {{dropzone-widget
             options=dropzoneOptions
             sending=(action 'sending')
             buildUrl=(action 'buildUrl')
             complete=(action 'complete')
             preUpload=(action 'preUpload')
             maxfilesexceeded=(action 'maxfilesexceeded')
-       }}
+        }}
     </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-4">
-      {{file-browser rootItem=model
-        openFile=(action 'fileDetail')
-      }}
-  </div>
-  <div class="col-xs-8">
-      {{#file-renderer download=downloadUrl
-        width="800" height="1000"}}
-    {{/file-renderer}}
-  </div>
+    <div class="col-xs-4">
+        {{file-browser rootItem=model
+            openFile=(action 'fileDetail')
+        }}
+    </div>
+    <div class="col-xs-8">
+        {{#file-renderer download=downloadUrl
+            width="800" height="1000"}}
+        {{/file-renderer}}
+    </div>
 </div>
