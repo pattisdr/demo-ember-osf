@@ -177,3 +177,77 @@ export default Ember.Route.extend({
     {{/each}}
 </ul>
 ```
+
+## 4.  Add a file-browser to view all the files stored in a project
+- **Add file-browser component (from Ember-OSF) to** *app/templates/detail.hbs*  Pass in the model (which is the project), to the file-browser component, so the component can fetch the project's files.
+
+```html
+<h1> {{model.title}} </h1>
+<h2> {{model.description}} </h2>
+<h3> Public: {{model.public}} </h3>
+
+<div class="row">
+    <div class="col-xs-4">
+        {{file-browser
+            rootItem=model
+        }}
+    </div>
+</div>
+```
+
+## 5.  **Add file-rendering** to render an individual file in the browser
+- **Pass in an openFile action to the file-browser component** in *app/templates/detail.hbs*. When you click on a file, the openFile action will run.  We will define this action shortly.
+```html
+<h1> {{model.title}} </h1>
+<h2> {{model.description}} </h2>
+<h3> Public: {{model.public}} </h3>
+
+<div class="row">
+    <div class="col-xs-4">
+        {{file-browser
+            rootItem=model
+            openFile=(action 'openFile')
+        }}
+    </div>
+</div>
+```
+- **Generate a detail controller so you have a place to define your openFile action** Type in your terminal:
+    $ _ember generate controller detail_
+
+- **Add three pieces to your detail controller**   These pieces will help build a downloadUrl that we can pass to the file-renderer. ** 1) Add a downloadUrl property with an initial value of null. 2) Inject the fileManager service.  This is an Ember-OSF service which helps you do things with files.  3) Add an openFile action. When you click on your file in the file-browser, this action will run.  All it does is create the downloadUrl to download that particular file (with the help of the fileManager service).  in *app/controllers/detail.js*
+
+```js
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
+    downloadUrl: null,
+    fileManager: Ember.inject.service(),
+    actions: {
+       openFile(file) {
+            this.set('downloadUrl', this.get('fileManager').getDownloadUrl(file));
+        }
+    }
+});
+```
+
+- **Add the file-renderer component (from Ember-OSF) to** *app/templates/detail.hbs* We are going to pass in the downloadUrl which is generated when you click on the file in the file-browser component.
+
+```html
+<h1> {{model.title}} </h1>
+<h2> {{model.description}} </h2>
+<h3> Public: {{model.public}} </h3>
+
+<div class="row">
+    <div class="col-xs-4">
+        {{file-browser
+            rootItem=model
+            openFile=(action 'openFile')
+        }}
+    </div>
+    <div class="col-xs-8">
+        {{#file-renderer download=downloadUrl
+            width="800" height="1000"}}
+        {{/file-renderer}}
+    </div>
+</div>
+```
