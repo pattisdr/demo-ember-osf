@@ -9,7 +9,7 @@ body {
 ## 2.  To define a projects route that displays a list of projects:
 - **Type in your terminal:**
     $ _ember generate route projects_
--  **Add model hook to projects route handler to fetch projects** *app/routes/projects*
+-  **Add model hook to projects route handler to [retrieve multiple projects](https://guides.emberjs.com/v2.11.0/models/finding-records/#toc_retrieving-multiple-records)** *app/routes/projects*
 ```js
 import Ember from 'ember';
 
@@ -19,7 +19,8 @@ export default Ember.Route.extend({
     }
 });
 ```
-  - **Add HTML to projects template** *app/templates/projects.hbs*
+  - **Add HTML to projects template in ** *app/templates/projects.hbs*
+  We are using an [`each`](https://guides.emberjs.com/v2.11.0/templates/displaying-a-list-of-items/) helper to iterate through all the projects in the model.
 
 ```html
 <h1> Projects </h1>
@@ -59,7 +60,7 @@ Router.map(function () {
 export default Router;
 
 ```
--  **Add model hook to detail route handler to fetch a single project** *app/routes/detail*
+-  **Add model hook to detail route handler to [retrieve a single project](https://guides.emberjs.com/v2.11.0/models/finding-records/#toc_retrieving-a-single-record)** *app/routes/detail*
 ```js
 import Ember from 'ember';
 
@@ -76,7 +77,7 @@ export default Ember.Route.extend({
 <h2> {{model.description}} </h2>
 <h3> Public: {{model.public}} </h3>
 ```
-- **Add `link-to` helper to create a link to each project in** *app/templates/projects.hbs*
+- **Add a [`link-to` component](https://guides.emberjs.com/v2.11.0/templates/links/#toc_the-code-link-to-code-component) to create a link to each project in** *app/templates/projects.hbs*
 
 ```html
 <h1> Projects </h1>
@@ -96,7 +97,7 @@ export default Ember.Route.extend({
 ```
 
 ## 4.  Add a file-browser to view all the files stored in a project
-- **Add file-browser component (from Ember-OSF) to** *app/templates/detail.hbs*  Pass in the model (which is the project), to the file-browser component, so the component can fetch the project's files.
+- **Add [file-browser](http://centerforopenscience.github.io/ember-osf/classes/file-browser.html) component (from Ember-OSF) to** *app/templates/detail.hbs*  Pass in the model (which is the project), to the file-browser component, so the component can fetch the project's files.
 
 ```html
 <h1> {{model.title}} </h1>
@@ -128,7 +129,7 @@ export default Ember.Route.extend({
     </div>
 </div>
 ```
-- **Generate a detail controller so you have a place to define your openFile action** Type in your terminal:
+- **Generate a detail controller** so you have a place to define your openFile [action](https://guides.emberjs.com/v2.11.0/components/triggering-changes-with-actions/#toc_implementing-the-action). Type in your terminal:
     $ _ember generate controller detail_
 
 - **Add three pieces to your detail controller**   These pieces will help build a downloadUrl that we can pass to the file-renderer. ** 1) Add a downloadUrl property with an initial value of null. 2) Inject the fileManager service.  This is an Ember-OSF service which helps you do things with files.  3) Add an openFile action. When you click on your file in the file-browser, this action will run.  All it does is create the downloadUrl to download that particular file (with the help of the fileManager service).  in *app/controllers/detail.js*
@@ -147,7 +148,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-- **Add the file-renderer component (from Ember-OSF) to** *app/templates/detail.hbs* We are going to pass in the downloadUrl which is generated when you click on the file in the file-browser component.
+- **Add the [file-renderer component](http://centerforopenscience.github.io/ember-osf/classes/file-renderer.html) (from Ember-OSF) to** *app/templates/detail.hbs* We are going to pass in the downloadUrl which is generated when you click on the file in the file-browser component.
 
 ```html
 <h1> {{model.title}} </h1>
