@@ -1,0 +1,14 @@
+<h1> Projects </h1>
+
+<ul>
+    {{#each model as |project|}}
+        <li>
+            {{#link-to 'detail' project.id}}
+                <p> {{project.title}} </p>
+            {{/link-to}}
+            {{#if project.description}}
+                <p> Description: {{project.description}} </p>
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
