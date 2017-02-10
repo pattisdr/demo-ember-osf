@@ -19,7 +19,8 @@ export default Ember.Route.extend({
     }
 });
 ```
-  - **Add HTML to projects template** *app/templates/projects.hbs*
+  - **Add HTML to projects template in ** *app/templates/projects.hbs*
+  We are using an [`each`](https://guides.emberjs.com/v2.11.0/templates/displaying-a-list-of-items/) helper to iterate through all the projects in the model.
 
 ```html
 <h1> Projects </h1>
@@ -128,7 +129,7 @@ export default Ember.Route.extend({
     </div>
 </div>
 ```
-- **Generate a detail controller** so you have a place to define your openFile [action](https://guides.emberjs.com/v2.11.0/components/triggering-changes-with-actions/#toc_implementing-the-action) Type in your terminal:
+- **Generate a detail controller** so you have a place to define your openFile [action](https://guides.emberjs.com/v2.11.0/components/triggering-changes-with-actions/#toc_implementing-the-action). Type in your terminal:
     $ _ember generate controller detail_
 
 - **Add three pieces to your detail controller**   These pieces will help build a downloadUrl that we can pass to the file-renderer. ** 1) Add a downloadUrl property with an initial value of null. 2) Inject the fileManager service.  This is an Ember-OSF service which helps you do things with files.  3) Add an openFile action. When you click on your file in the file-browser, this action will run.  All it does is create the downloadUrl to download that particular file (with the help of the fileManager service).  in *app/controllers/detail.js*
