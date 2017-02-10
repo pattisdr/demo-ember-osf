@@ -79,3 +79,101 @@ In the future, we will add:
 - Demonstrate nested route / paginated requests according to ember best practices
 - Improve a11y testing (currently runs during acceptance tests, but does not cause tests to fail; 
   see [known pending issue](https://github.com/ember-a11y/ember-a11y-testing/issues/47))
+
+
+# Workshop Instructions
+## 1. To change the background color:
+- **Add css to stylesheet** *app/styles/app.scss*
+```css
+body {
+  background-color: red;
+}
+```
+## 2.  To define a projects route that displays a list of projects:
+- **Type in your terminal:**
+    $ _ember generate route projects_
+-  **Add model hook to projects route handler to fetch projects** *app/routes/projects*
+```js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+    model() {
+        return this.get('store').findAll('node');
+    }
+});
+```
+  - **Add HTML to projects template** *app/templates/projects.hbs*
+
+```html
+<h1> Projects </h1>
+
+<ul>
+    {{#each model as |project|}}
+        <li>
+            <p> {{project.title}} </p>
+            {{#if project.description}}
+                <p> Description: {{project.description}} </p>
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
+```
+
+## 3.  To define a detail route displaying a single project:
+- **Type in your terminal:**
+    $ _ember generate route detail_
+- **Add detail path so `/projects/:project_id` will load detail route in** *app/router.js*
+```js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+    location: config.locationType,
+    rootURL: config.rootURL
+});
+
+Router.map(function () {
+  this.route('login');
+  this.route('me');
+  this.route('projects');
+  this.route('detail', {path: 'projects/:project_id'});
+});
+
+export default Router;
+
+```
+-  **Add model hook to detail route handler to fetch a single project** *app/routes/detail*
+```js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+    model(params) {
+        return this.get('store').findRecord('node', params.project_id);
+    }
+});
+```
+- **Add HTML to detail template to display project** *app/templates/detail.hbs*
+
+```html
+<h1> {{model.title}} </h1>
+<h2> {{model.description}} </h2>
+<h3> Public: {{model.public}} </h3>
+```
+- **Add `link-to` helper to create a link to each project in** *app/templates/projects.hbs*
+
+```html
+<h1> Projects </h1>
+
+<ul>
+    {{#each model as |project|}}
+        <li>
+            {{#link-to 'detail' project.id}}
+                <p> {{project.title}} </p>
+            {{/link-to}}
+            {{#if project.description}}
+                <p> Description: {{project.description}} </p>
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
+```
