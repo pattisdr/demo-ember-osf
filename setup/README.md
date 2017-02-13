@@ -1,6 +1,7 @@
 # Cloud 9
 
-[Cloud 9](https://c9.io/) is an online integrated development environment with an Ubuntu workspace. It offers the ability to quickly get started with a free, public, and shareable workspace. The following steps will ensure that your Cloud 9 environment is set properly.
+[Cloud 9](https://c9.io/) is an online integrated development environment with an Ubuntu workspace. It offers the ability to quickly get started with a free, public, and shareable workspace.
+The following steps will ensure that your Cloud 9 environment is set properly for this workshop.
 
 1. Create a new workspace
     - Add a workspace name, ex. workshop
