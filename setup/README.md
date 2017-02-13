@@ -16,7 +16,8 @@ The following steps will ensure that your Cloud 9 environment is set properly fo
   1. Click ENV
     - BACKEND test
     - PORT 8080
-1. Go to http://[workspace-name]-[username].c9users.io/
+1. Click  `Run`
+1. Scroll down to `Serving on http://localhost:8080/`.  Click on that link to navigate to your application.  You can also type http://[workspace-name]-[username].c9users.io/.
 
 ## Notes
 * The Cloud 9 environment does not support docker at this time.
