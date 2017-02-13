@@ -23,7 +23,7 @@ export default Ember.Route.extend({
     }
 });
 ```
-  - **Add HTML to projects template in ** *app/templates/projects.hbs*
+  - **Add HTML to projects template in** *app/templates/projects.hbs*
   We are using an [`each`](https://guides.emberjs.com/v2.11.0/templates/displaying-a-list-of-items/) helper to iterate through all the projects in the model.
 
 ```html
