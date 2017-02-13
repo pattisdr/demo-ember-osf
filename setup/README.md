@@ -14,7 +14,7 @@ The following steps will ensure that your Cloud 9 environment is set properly fo
   1. Give it a name, in the first gray box. (e.g. `serve`)
   1. Command: `ember server`
   1. Click ENV
-    - BACKEND stage
+    - BACKEND test
     - PORT 8080
 1. Go to http://[workspace-name]-[username].c9users.io/
 
