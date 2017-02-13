@@ -1,15 +1,17 @@
 # Cloud 9
 
-[Cloud 9](https://c9.io/) is an online integrated development environment with an Ubuntu workspace. It offers the 
-ability to quickly get started with a free, public, and shareable workspace. The following steps will ensure that your
-Cloud 9 environment is set properly.
+[Cloud 9](https://c9.io/) is an online integrated development environment with an Ubuntu workspace. It offers the ability to quickly get started with a free, public, and shareable workspace.
+The following steps will ensure that your Cloud 9 environment is set properly for this workshop.
 
 1. Create a new workspace
-  - Use the https git url (not the ssh git url) for the *Clone from Git* field
-1. (In the terminal) Run `git checkout <branch>`, where <branch> is the branch name (e.g. `develop`)
-1. Run `. ./setup/cloud9.sh`
-1. Toolbar → Run → Run Configurations → New Run Configurations
-  1. Give it a name (e.g. `serve`)
+    - Add a workspace name, ex. workshop
+    - For the *Clone from Git* field, add https://github.com/pattisdr/demo-ember-osf.git
+    - Choose a template: Blank
+    - Click `Create workspace`
+1. (In the terminal) Run `git checkout workshop_demo`
+1. Run `. ./setup/cloud9.sh`.  Copy this exactly, the `. ./` is important.
+1. Toolbar → Run → Run Configurations → New Run Configuration
+  1. Give it a name, in the first gray box. (e.g. `serve`)
   1. Command: `ember server`
   1. Click ENV
     - BACKEND stage
