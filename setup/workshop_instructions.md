@@ -1,4 +1,8 @@
 # Workshop Instructions
+
+<p><em> In this workshop, we will building our own custom interface on top of the OSF in Ember.  We have Ember-OSF installed,
+ so we can make use of Ember-OSF's models, adapters, serializers, services, and components.  This means that we can easily interact
+ with the OSF APIv2 using Ember and have access to several reusable widgets that provide a lot of functionality. </em></p>
 ## 1. To change the background color:
 - **Add css to stylesheet** *app/styles/app.scss*
 ```css
@@ -19,7 +23,7 @@ export default Ember.Route.extend({
     }
 });
 ```
-  - **Add HTML to projects template in ** *app/templates/projects.hbs*
+  - **Add HTML to projects template in** *app/templates/projects.hbs*
   We are using an [`each`](https://guides.emberjs.com/v2.11.0/templates/displaying-a-list-of-items/) helper to iterate through all the projects in the model.
 
 ```html
