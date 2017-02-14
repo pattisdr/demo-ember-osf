@@ -3,6 +3,7 @@
 [Cloud 9](https://c9.io/) is an online integrated development environment with an Ubuntu workspace. It offers the ability to quickly get started with a free, public, and shareable workspace.
 The following steps will ensure that your Cloud 9 environment is set properly for this workshop.
 
+## Setup Steps (10-15 minutes)
 1. Create a new workspace
     - Add a workspace name, ex. workshop
     - For the *Clone from Git* field, add https://github.com/pattisdr/demo-ember-osf.git
