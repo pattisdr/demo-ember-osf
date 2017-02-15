@@ -9,7 +9,7 @@ The following steps will ensure that your Cloud 9 environment is set properly fo
     - For the *Clone from Git* field, add https://github.com/pattisdr/demo-ember-osf.git
     - Choose a template: Blank
     - Click `Create workspace`
-1. (In the terminal, which is at the bottom of your cloud9 environment - bash tab) Run `git checkout workshop_demo`
+1. (In the [terminal](https://docs.c9.io/docs/terminal), which is at the bottom of your cloud9 environment - bash tab) Run `git checkout workshop_demo`
 1. Run `. ./setup/cloud9.sh`.  Copy this exactly, the `. ./` is important.
 1. Toolbar → Run → Run Configurations → New Run Configuration
   1. Give it a name, in the first gray box. (e.g. `serve`)
