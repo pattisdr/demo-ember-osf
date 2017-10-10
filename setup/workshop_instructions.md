@@ -1,6 +1,6 @@
 # Workshop Instructions
 
-<p><em> In this workshop, we will building our own custom interface on top of the OSF in Ember.  We have Ember-OSF installed,
+<p><em> In this workshop, we will be building our own custom interface on top of the OSF in Ember.  We have Ember-OSF installed,
  so we can make use of Ember-OSF's models, adapters, serializers, services, and components.  This means that we can easily interact
  with the OSF APIv2 using Ember and have access to several reusable widgets that provide a lot of functionality. </em></p>
  
